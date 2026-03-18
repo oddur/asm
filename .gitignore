@@ -1,5 +1,4 @@
 *.o
-hello
 program
 sample.txt
 .DS_Store

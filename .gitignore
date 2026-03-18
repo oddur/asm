@@ -1,0 +1,7 @@
+*.o
+# Ignore compiled binaries (no extension) — add explicitly if needed
+hello
+program
+calculator
+fileio
+.DS_Store

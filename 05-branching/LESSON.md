@@ -180,18 +180,15 @@ modify the condition flags.
 
 Our program's control flow looks like this:
 
-```
-        cmp x0, x1
-        /    |    \
-    b.eq  b.gt    b (fallthrough)
-      |     |        |
-   equal  greater   less
-      \     |       /
-       \    |      /
-        v   v    v
-         print
-          |
-         exit
+```mermaid
+flowchart TD
+    CMP["cmp x0, x1"] -->|b.eq| EQ[equal]
+    CMP -->|b.gt| GT[greater]
+    CMP -->|b| LT[less]
+    EQ --> PRINT[print]
+    GT --> PRINT
+    LT --> PRINT
+    PRINT --> EXIT[exit]
 ```
 
 Each branch prepares its message and then jumps to the common `print` label.

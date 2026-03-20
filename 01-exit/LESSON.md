@@ -51,14 +51,11 @@ You can now run it with `./program`.
 
 ### The full pipeline
 
-```
-  program.s          program.o              program
- ┌──────────┐      ┌──────────┐          ┌──────────┐
- │ Assembly │─as──>│  Object  │───ld────>│Executable│──> Run!
- │  source  │      │   file   │          │  binary  │
- └──────────┘      └──────────┘          └──────────┘
-   (text)        (machine code,        (machine code,
-                  unresolved)           ready to run)
+```mermaid
+flowchart LR
+    A["program.s\n(assembly source)"] -->|as| B["program.o\n(object file)"]
+    B -->|ld| C["program\n(executable)"]
+    C -->|"./program"| D["Run!"]
 ```
 
 The `Makefile` automates this so you just type `make`.

@@ -58,16 +58,19 @@ addresses). The **stack pointer** register, written **`sp`**, always points
 to the top of the stack. `sp` is a special register — it's not one of the
 x0–x30 general-purpose registers.
 
+```mermaid
+block-beta
+    columns 1
+    A["older data"]
+    B["top of stack ← sp"]
+    C["(free)"]
+
+    style A fill:#444,color:#fff
+    style B fill:#2a6,color:#fff
+    style C fill:#555,color:#999,stroke-dasharray: 5 5
 ```
-High address    ┌──────────────┐
-                │  older data  │
-                ├──────────────┤
-    sp ──────>  │  top of      │
-                │  stack       │
-                ├──────────────┤
-                │  (free)      │
-Low address     └──────────────┘
-```
+
+(High addresses at top, low addresses at bottom — the stack grows downward.)
 
 To **push** data onto the stack: subtract from `sp` (make room), then store.
 To **pop** data off the stack: load, then add to `sp` (reclaim space).

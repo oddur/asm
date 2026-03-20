@@ -23,20 +23,20 @@ Or: `printf "123\n456\n" | ./program`
 This lesson introduces no new instructions. Instead, it demonstrates how to
 **compose** the functions we've built across the previous lessons:
 
-```
-prompt_number
-  ├── print_string     (print the prompt)
-  ├── read_line         (get user input)
-  └── parse_uint        (convert to number)
+```mermaid
+flowchart TD
+    PN[prompt_number] --> PS[print_string]
+    PN --> RL[read_line]
+    PN --> PU[parse_uint]
 ```
 
-```
-_start
-  ├── prompt_number     (get first number)
-  ├── prompt_number     (get second number)
-  ├── add               (compute sum)
-  ├── print_uint        (display numbers)
-  └── print_string      (display operators)
+```mermaid
+flowchart TD
+    START[_start] --> PN1["prompt_number (first)"]
+    START --> PN2["prompt_number (second)"]
+    START --> ADD[add]
+    START --> PUI[print_uint]
+    START --> PSI[print_string]
 ```
 
 This is how real programs are structured — small, focused functions composed

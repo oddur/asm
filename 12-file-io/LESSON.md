@@ -118,10 +118,10 @@ leak.
 
 ### The complete file I/O lifecycle
 
-```
-1. open()  → get a file descriptor
-2. read() or write()  → transfer data
-3. close() → release the file descriptor
+```mermaid
+flowchart LR
+    A["open()"] -->|"fd"| B["read() / write()"]
+    B -->|"done"| C["close()"]
 ```
 
 This is the same pattern used by every programming language under the hood.
